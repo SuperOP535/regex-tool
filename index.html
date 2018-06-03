@@ -1,4 +1,10 @@
-<textarea style="width: 20em; height: 5em;"><br><input style="width: 2em;"><br><button>get json</button><button>get list</button>
+<textarea placeholder="Input" style="width: 20em; height: 5em;"><br><input placeholder="RegEx Pattern" style="width: 2em;"><br><button onclick="get(1)">json</button><button onclick="get(2)">list</button>
 <script>
-
+  var input = document.getElementsByTagName('textarea')[0];
+  var regex = document.getElementsByTagName('input')[0];
+  function get(type) {
+    var matches = input.value.match(new RegExp(regex, 'g'));
+    if(!matches) return alert('No matches');
+    input.value = (type == 1 ? JSON.stringify(matches) : matches.join('\n'));
+  }
 </script>
