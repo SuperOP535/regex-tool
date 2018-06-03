@@ -3,7 +3,7 @@
   var input = document.getElementsByTagName('textarea')[0];
   var regex = document.getElementsByTagName('input')[0];
   function get(type) {
-    var matches = input.value.match(new RegExp(regex, 'g'));
+    var matches = input.value.match(new RegExp(regex.value, 'g'));
     if(!matches) return alert('No matches');
     input.value = (type == 1 ? JSON.stringify(matches) : matches.join('\n'));
   }
